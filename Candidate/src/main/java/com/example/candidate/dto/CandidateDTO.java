@@ -1,0 +1,28 @@
+package com.example.candidate.dto;
+
+
+import lombok.Data;
+import javax.validation.constraints.Pattern;
+
+@Data
+public class CandidateDTO {
+
+    @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "FirstName is Invalid")
+    private final String firstName;
+
+    @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "LastName is Invalid")
+    private String lastName;
+
+    private String address;
+    private String status;
+
+    private String email;
+
+    public CandidateDTO(String firstName, String lastName, String address, String status,String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.status = status;
+        this.email=email;
+    }
+}

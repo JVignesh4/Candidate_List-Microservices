@@ -1,0 +1,27 @@
+server:
+  port: 8095
+
+eureka:
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: Candidate
+          uri: http://localhost:8095/
+          predicates:
+            - Path=/candidate/**
+
+        - id: Education
+          uri: http://localhost:8096/
+          predicates:
+            - Path=/education/**
+
+        - id: Bank
+          uri: http://localhost:8097/
+          predicates:
+            - Path=/bankDetails/**
